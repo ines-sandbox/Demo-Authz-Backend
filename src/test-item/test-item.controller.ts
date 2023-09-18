@@ -4,7 +4,7 @@ import { Permissions } from '../permissions.decorator';
 import { PermissionsGuard } from '../permissions.guard';
 import { DebugAuthGuard } from 'src/authz/DebugAuth.guard';
 
-@Controller('asba')
+@Controller('dummy')
 @UseGuards(DebugAuthGuard, PermissionsGuard)
 export class TestItemController {
   @Get()
@@ -12,7 +12,7 @@ export class TestItemController {
     return console.log('without login');
   }
 
-  @Get('/ok')
+  @Get('/login')
   @Permissions('update:items')
   withLogin() {
     return console.log('with login');
